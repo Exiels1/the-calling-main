@@ -1,0 +1,29 @@
+HOW TO RUN (Windows / macOS / Linux)
+
+Prerequisites
+- Install Node.js (recommended: Node 20+ or 22+).
+
+Setup (first time)
+1) Open a terminal in this project folder (the one with package.json).
+2) Install dependencies:
+   npm install
+3) Create your local env file:
+   - Copy .env.example to .env.local
+   - Put your Gemini API key in .env.local:
+     GEMINI_API_KEY="YOUR_KEY_HERE"
+
+Run (development)
+1) Start the dev server:
+   npm run dev
+2) Open the app in your browser:
+   http://localhost:3000
+
+Build + Preview (optional)
+1) Build:
+   npm run build
+2) Preview the production build:
+   npm run preview
+
+Common issues
+- "GEMINI_API_KEY is missing": make sure .env.local exists and has GEMINI_API_KEY set.
+- Port 3000 already in use: stop the other app using 3000, or change the port in package.json (scripts.dev).
