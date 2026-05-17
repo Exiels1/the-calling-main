@@ -502,7 +502,7 @@ export default function App() {
             {onboardingStep === 2 && (
               <div className="space-y-8 text-center sm:text-left">
                 <div className="space-y-2">
-                  <h2 className="text-4xl font-bold tracking-tight text-white uppercase italic">What are you called to build?</h2>
+                  <h2 className="text-4xl font-bold tracking-tight text-white uppercase italic">Drop your echo.</h2>
                   <p className="text-sm font-mono text-slate-500 uppercase tracking-widest">Be specific. Vague answers attract vague people.</p>
                 </div>
                 <textarea 
