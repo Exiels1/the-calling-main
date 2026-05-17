@@ -20,7 +20,7 @@ import {
   ArrowLeft, 
   Code, 
   Terminal, 
-  Heart, 
+  Activity, 
   Bookmark,
   Music,
   Globe,
@@ -300,7 +300,7 @@ export default function App() {
     TrendingUp: <TrendingUp />,
     Zap: <Zap />,
     Code: <Code />,
-    Heart: <Heart />,
+    Activity: <Activity />,
     Star: <Star />
   };
 
@@ -387,7 +387,7 @@ export default function App() {
       <div className="min-h-screen bg-navy-950 flex flex-col items-center justify-center relative overflow-hidden">
         {/* Subtle Network Background */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e2d40_1px,transparent_1px),linear-gradient(to_bottom,#1e2d40_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e2d40_1px,transparent_1px),linear-gradient(to_bottom,#1e2d40_1px,transparent_1px)] bg-[size:4rem_4rem]" />
         </div>
 
         <motion.div 
@@ -450,7 +450,7 @@ export default function App() {
       <div className="min-h-screen bg-navy-950 flex flex-col items-center justify-center relative overflow-hidden p-6">
         {/* Subtle Network Background */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e2d40_1px,transparent_1px),linear-gradient(to_bottom,#1e2d40_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e2d40_1px,transparent_1px),linear-gradient(to_bottom,#1e2d40_1px,transparent_1px)] bg-[size:4rem_4rem]" />
         </div>
 
         {/* Step Indicator */}
@@ -491,7 +491,7 @@ export default function App() {
                 <button 
                   disabled={!onboardingData.name.trim()}
                   onClick={() => setOnboardingStep(2)}
-                  className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all disabled:opacity-20 active:scale-95"
+                  className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all disabled:opacity-20"
                 >
                   Continue →
                 </button>
@@ -516,7 +516,7 @@ export default function App() {
                   <button 
                     disabled={!onboardingData.building.trim()}
                     onClick={() => setOnboardingStep(3)}
-                    className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all disabled:opacity-20 active:scale-95"
+                    className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all disabled:opacity-20"
                   >
                     Continue →
                   </button>
@@ -565,7 +565,7 @@ export default function App() {
                   <button 
                     disabled={onboardingData.selectedTrails.length === 0}
                     onClick={() => setOnboardingStep(4)}
-                    className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all disabled:opacity-20 active:scale-95"
+                    className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all disabled:opacity-20"
                   >
                     Continue →
                   </button>
@@ -607,7 +607,7 @@ export default function App() {
                   <button 
                     disabled={!onboardingData.helpOthers.trim() || !onboardingData.helpMe.trim()}
                     onClick={finishOnboarding}
-                    className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20 active:scale-95 disabled:opacity-20"
+                    className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all shadow-lg"
                   >
                     Enter The Calling →
                   </button>
@@ -656,7 +656,7 @@ export default function App() {
 
           <nav className="space-y-1">
             <NavItem icon={<LayoutGrid />} label="Hub" active={screen === 'hub' && !activeTrailId} onClick={() => { setActiveTrailId(null); setScreen('hub'); }} compact={screen === 'trail'} />
-            <NavItem icon={<BookOpen />} label="Trails" active={!!activeTrailId} compact={screen === 'trail'} onClick={() => { if(!activeTrailId) setActiveTrailId(trails[0].id); if(screen === 'entry') setScreen('hub'); }} />
+            <NavItem icon={<BookOpen />} label="Trails" active={!!activeTrailId} compact={screen === 'trail'} onClick={() => { if(!activeTrailId) setActiveTrailId(trails[0].id); if(screen !== 'trail') setScreen('trail'); }} />
             <NavItem icon={<Users />} label="Builders" active={screen === 'builders'} onClick={() => { setScreen('builders'); setActiveTrailId(null); }} compact={screen === 'trail'} />
             <NavItem icon={<Plus />} label="Create" onClick={() => setShowCreateTrailModal(true)} compact={screen === 'trail'} />
           </nav>
@@ -666,7 +666,7 @@ export default function App() {
               <span className="px-3 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Your Trails</span>
               <div className="space-y-1">
                 {userTrails.map(t => (
-                  <button key={t.id} onClick={() => { setActiveTrailId(t.id); setScreen('trail'); }} className={`w-full text-left px-3 py-1.5 text-xs transition-colors truncate font-mono ${activeTrailId === t.id ? 'text-blue-500' : 'text-slate-400 hover:text-white'}`}>
+                  <button key={t.id} onClick={() => { setActiveTrailId(t.id); setScreen('trail'); }} className={`w-full text-left px-3 py-1.5 text-xs transition-colors truncate font-mono ${activeTrailId === t.id ? 'text-blue-500' : 'text-slate-500 hover:text-slate-300'}`}>
                     ◈ {t.name}
                   </button>
                 ))}
@@ -815,7 +815,7 @@ export default function App() {
                        <h3 className="text-2xl font-bold text-white tracking-tight">{userProfile.name}</h3>
                        <div className="flex items-center gap-3">
                          <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">@{userProfile.handle}</span>
-                         <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-bold text-emerald-500 uppercase tracking-widest">
+                         <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-bold text-emerald-500 uppercase">
                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                            Building
                          </span>
@@ -886,7 +886,7 @@ export default function App() {
                 <textarea 
                   value={newPostContent}
                   onChange={e => setNewPostContent(e.target.value)}
-                  placeholder={screen === 'trail' ? "Contribute to this trail..." : "What are you building through?"}
+                  placeholder={screen === 'trail' ? "Contribute to this trail..." : "Drop your echo."}
                   className="w-full bg-transparent border-none focus:ring-0 text-slate-100 placeholder:text-slate-600 resize-none min-h-[60px] text-lg"
                 />
                 <div className="flex justify-between items-center mt-4 pt-4 border-t border-navy-800/50">
@@ -934,7 +934,7 @@ export default function App() {
                           </div>
                           <div className="flex items-center gap-4">
                             {post.trail && !activeTrailId && (
-                              <button onClick={() => { setActiveTrailId(trails.find(t => t.name === post.trail)?.id || null); setScreen('trail'); }} className="text-[10px] uppercase font-bold tracking-widest text-blue-500 border border-blue-500/30 px-2 py-0.5 rounded-sm hover:bg-blue-500/10 transition-all">
+                              <button onClick={() => { setActiveTrailId(trails.find(t => t.name === post.trail)?.id || null); setScreen('trail'); }} className="text-[10px] uppercase font-bold text-slate-500 hover:text-blue-500 transition-colors">
                                 {post.trail}
                               </button>
                             )}
@@ -956,7 +956,7 @@ export default function App() {
                             </button>
                           )}
                           <div className="ml-auto flex gap-4">
-                            <Heart className="w-4 h-4 hover:text-red-500 cursor-pointer transition-colors" />
+                            <Activity className="w-4 h-4 hover:text-blue-500 cursor-pointer transition-colors" />
                             <Bookmark className="w-4 h-4 hover:text-blue-500 cursor-pointer transition-colors" />
                           </div>
                         </div>
