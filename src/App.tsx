@@ -342,7 +342,7 @@ export default function App() {
   const statusColors = {
     building: 'bg-emerald-500',
     thinking: 'bg-amber-500',
-    here: 'bg-blue-500'
+    here: 'bg-cyan-500'
   };
 
   useEffect(() => {
@@ -416,7 +416,7 @@ export default function App() {
             whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)" }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setScreen('onboarding')}
-            className="px-16 py-4 bg-transparent border border-blue-500 text-blue-500 font-bold uppercase tracking-[0.3em] rounded-sm transition-all duration-300 shadow-lg shadow-blue-500/10"
+            className="px-16 py-4 bg-transparent border border-cyan-500 text-cyan-500 font-bold uppercase tracking-[0.3em] rounded-sm transition-all duration-300 shadow-lg shadow-cyan-500/10"
           >
             Enter
           </motion.button>
@@ -458,7 +458,7 @@ export default function App() {
           {[1, 2, 3, 4].map(step => (
             <div 
               key={step} 
-              className={`h-1 transition-all duration-500 rounded-full ${onboardingStep >= step ? 'w-8 bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]' : 'w-4 bg-navy-800'}`} 
+              className={`h-1 transition-all duration-500 rounded-full ${onboardingStep >= step ? 'w-8 bg-cyan-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]' : 'w-4 bg-navy-800'}`} 
             />
           ))}
           <span className="ml-4 text-[10px] font-mono text-slate-500 uppercase tracking-widest">Step {onboardingStep} of 4</span>
@@ -486,12 +486,12 @@ export default function App() {
                   value={onboardingData.name}
                   onChange={e => setOnboardingData({...onboardingData, name: e.target.value})}
                   placeholder="Your name or alias"
-                  className="w-full bg-transparent border-b-2 border-navy-800 pb-4 text-3xl text-white outline-none focus:border-blue-500 transition-colors placeholder:text-slate-800"
+                  className="w-full bg-transparent border-b-2 border-navy-800 pb-4 text-3xl text-white outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-800"
                 />
                 <button 
                   disabled={!onboardingData.name.trim()}
                   onClick={() => setOnboardingStep(2)}
-                  className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all disabled:opacity-20"
+                  className="w-full sm:w-auto px-12 py-4 bg-cyan-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-cyan-600 transition-all disabled:opacity-20"
                 >
                   Continue →
                 </button>
@@ -510,13 +510,13 @@ export default function App() {
                   value={onboardingData.building}
                   onChange={e => setOnboardingData({...onboardingData, building: e.target.value})}
                   placeholder="e.g. I am building a skincare brand for the next generation."
-                  className="w-full bg-navy-900 border border-navy-800 rounded-sm p-6 text-xl text-white outline-none focus:border-blue-500 transition-colors placeholder:text-slate-800 h-32 resize-none"
+                  className="w-full bg-navy-900 border border-navy-800 rounded-sm p-6 text-xl text-white outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-800 h-32 resize-none"
                 />
                 <div className="flex flex-col sm:flex-row items-center gap-6">
                   <button 
                     disabled={!onboardingData.building.trim()}
                     onClick={() => setOnboardingStep(3)}
-                    className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all disabled:opacity-20"
+                    className="w-full sm:w-auto px-12 py-4 bg-cyan-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-cyan-600 transition-all disabled:opacity-20"
                   >
                     Continue →
                   </button>
@@ -545,15 +545,15 @@ export default function App() {
                       }}
                       className={`p-4 rounded-sm border text-left transition-all group ${
                         onboardingData.selectedTrails.includes(trail.name) 
-                        ? 'bg-blue-500/10 border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.1)]' 
+                        ? 'bg-cyan-500/10 border-cyan-500 shadow-[0_0_15px_rgba(59,130,246,0.1)]' 
                         : 'bg-navy-900 border-navy-800 hover:border-navy-700'
                       }`}
                     >
                       <div className="flex items-center gap-3 mb-2">
                         {React.cloneElement(trail.icon as React.ReactElement, { 
-                          className: `w-5 h-5 ${onboardingData.selectedTrails.includes(trail.name) ? 'text-blue-500' : 'text-slate-500'}` 
+                          className: `w-5 h-5 ${onboardingData.selectedTrails.includes(trail.name) ? 'text-cyan-500' : 'text-slate-500'}` 
                         })}
-                        <span className={`text-xs font-bold uppercase tracking-widest ${onboardingData.selectedTrails.includes(trail.name) ? 'text-blue-500' : 'text-slate-300'}`}>
+                        <span className={`text-xs font-bold uppercase tracking-widest ${onboardingData.selectedTrails.includes(trail.name) ? 'text-cyan-500' : 'text-slate-300'}`}>
                           {trail.name}
                         </span>
                       </div>
@@ -565,7 +565,7 @@ export default function App() {
                   <button 
                     disabled={onboardingData.selectedTrails.length === 0}
                     onClick={() => setOnboardingStep(4)}
-                    className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all disabled:opacity-20"
+                    className="w-full sm:w-auto px-12 py-4 bg-cyan-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-cyan-600 transition-all disabled:opacity-20"
                   >
                     Continue →
                   </button>
@@ -589,7 +589,7 @@ export default function App() {
                       value={onboardingData.helpOthers}
                       onChange={e => setOnboardingData({...onboardingData, helpOthers: e.target.value})}
                       placeholder="e.g. I design logos, I mix tracks, I build apps"
-                      className="w-full bg-navy-900 border border-navy-800 rounded-sm p-4 text-white focus:border-blue-500 outline-none transition-all"
+                      className="w-full bg-navy-900 border border-navy-800 rounded-sm p-4 text-white focus:border-cyan-500 outline-none transition-all"
                     />
                   </div>
                   <div className="space-y-2">
@@ -599,7 +599,7 @@ export default function App() {
                       value={onboardingData.helpMe}
                       onChange={e => setOnboardingData({...onboardingData, helpMe: e.target.value})}
                       placeholder="e.g. Someone who can help me grow an audience"
-                      className="w-full bg-navy-900 border border-navy-800 rounded-sm p-4 text-white focus:border-blue-500 outline-none transition-all"
+                      className="w-full bg-navy-900 border border-navy-800 rounded-sm p-4 text-white focus:border-cyan-500 outline-none transition-all"
                     />
                   </div>
                 </div>
@@ -607,7 +607,7 @@ export default function App() {
                   <button 
                     disabled={!onboardingData.helpOthers.trim() || !onboardingData.helpMe.trim()}
                     onClick={finishOnboarding}
-                    className="w-full sm:w-auto px-12 py-4 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-blue-600 transition-all shadow-lg"
+                    className="w-full sm:w-auto px-12 py-4 bg-cyan-500 text-white font-bold uppercase text-xs tracking-[0.3em] rounded-sm hover:bg-cyan-600 transition-all shadow-lg"
                   >
                     Enter The Calling →
                   </button>
@@ -623,7 +623,7 @@ export default function App() {
 
   // Render Screen 2/3: The Hub / Trail Mode
   return (
-    <div className="min-h-screen bg-navy-950 flex text-slate-100 selection:bg-blue-500/30">
+    <div className="min-h-screen bg-navy-950 flex text-slate-100 selection:bg-cyan-500/30">
       
       {/* LEFT PANEL: Navigation */}
       <aside 
@@ -632,7 +632,7 @@ export default function App() {
         }`}
       >
         <div className="p-6 flex items-center gap-3">
-          <Terminal className="w-6 h-6 text-blue-500" />
+          <Terminal className="w-6 h-6 text-cyan-500" />
           {screen !== 'trail' && <span className="font-bold tracking-tighter text-lg uppercase">The Calling</span>}
         </div>
 
@@ -648,7 +648,7 @@ export default function App() {
                 <div className={`absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-navy-900 rounded-full`} />
               </div>
               <div className="flex flex-col truncate">
-                <span className="text-xs font-mono font-bold truncate group-hover:text-blue-500 transition-colors">{userProfile.handle}</span>
+                <span className="text-xs font-mono font-bold truncate group-hover:text-cyan-500 transition-colors">{userProfile.handle}</span>
                 <span className="text-[10px] text-slate-500 uppercase tracking-wider">{userProfile.status}</span>
               </div>
             </div>
@@ -666,7 +666,7 @@ export default function App() {
               <span className="px-3 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Your Trails</span>
               <div className="space-y-1">
                 {userTrails.map(t => (
-                  <button key={t.id} onClick={() => { setActiveTrailId(t.id); setScreen('trail'); }} className={`w-full text-left px-3 py-1.5 text-xs transition-colors truncate font-mono ${activeTrailId === t.id ? 'text-blue-500' : 'text-slate-500 hover:text-slate-300'}`}>
+                  <button key={t.id} onClick={() => { setActiveTrailId(t.id); setScreen('trail'); }} className={`w-full text-left px-3 py-1.5 text-xs transition-colors truncate font-mono ${activeTrailId === t.id ? 'text-cyan-500' : 'text-slate-500 hover:text-slate-300'}`}>
                     ◈ {t.name}
                   </button>
                 ))}
@@ -731,13 +731,13 @@ export default function App() {
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <div className="space-y-4">
                   <div className="relative group">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-600 focus-within:text-blue-500 transition-colors" />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-600 focus-within:text-cyan-500 transition-colors" />
                     <input 
                       type="text" 
                       placeholder="Search allies by name, trail, or skill..."
                       value={builderSearch}
                       onChange={(e) => setBuilderSearch(e.target.value)}
-                      className="w-full bg-navy-900 border border-navy-800 rounded-sm py-4 pl-12 pr-4 text-white focus:border-blue-500 transition-all outline-none"
+                      className="w-full bg-navy-900 border border-navy-800 rounded-sm py-4 pl-12 pr-4 text-white focus:border-cyan-500 transition-all outline-none"
                     />
                   </div>
                   
@@ -748,7 +748,7 @@ export default function App() {
                         onClick={() => setBuilderTrailFilter(builderTrailFilter === trail.name ? null : trail.name)}
                         className={`text-[9px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm border transition-all ${
                           builderTrailFilter === trail.name 
-                          ? 'bg-blue-500 border-blue-500 text-white' 
+                          ? 'bg-cyan-500 border-cyan-500 text-white' 
                           : 'border-navy-800 text-slate-500 hover:border-navy-700 hover:text-slate-300'
                         }`}
                       >
@@ -778,7 +778,7 @@ export default function App() {
                       </div>
 
                       <div className="text-xs space-y-2">
-                        <p className="text-blue-500 font-bold uppercase tracking-[0.1em] text-[10px]">Building: {builder.building}</p>
+                        <p className="text-cyan-500 font-bold uppercase tracking-[0.1em] text-[10px]">Building: {builder.building}</p>
                         <p className="text-slate-400 italic text-[11px] leading-relaxed">"{builder.help}"</p>
                       </div>
 
@@ -806,7 +806,7 @@ export default function App() {
             {screen === 'profile' && (
               <div className="space-y-8 mb-12">
                 <div className="relative group">
-                  <div className="h-32 w-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-sm border border-navy-800" />
+                  <div className="h-32 w-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-sm border border-navy-800" />
                   <div className="absolute -bottom-6 left-8 flex items-end gap-6">
                     <div className="w-24 h-24 rounded-sm border-4 border-navy-950 overflow-hidden shadow-2xl">
                       <img src={userProfile.avatar} alt="" className="w-full h-full object-cover" />
@@ -840,7 +840,7 @@ export default function App() {
                     </section>
 
                     <section className="space-y-2">
-                      <h4 className="text-[10px] font-bold text-blue-500 uppercase tracking-[0.2em]">What I'm Building</h4>
+                      <h4 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em]">What I'm Building</h4>
                       <p className="text-xl font-bold text-white tracking-tight">{userProfile.building}</p>
                     </section>
 
@@ -864,7 +864,7 @@ export default function App() {
                            <button 
                              key={trail.id} 
                              onClick={() => { setActiveTrailId(trail.id); setScreen('trail'); }}
-                             className="text-[9px] uppercase font-bold tracking-widest text-slate-400 border border-navy-800 px-3 py-1.5 rounded-sm hover:border-blue-500/50 hover:text-blue-500 transition-all"
+                             className="text-[9px] uppercase font-bold tracking-widest text-slate-400 border border-navy-800 px-3 py-1.5 rounded-sm hover:border-cyan-500/50 hover:text-cyan-500 transition-all"
                            >
                              {trail.name}
                            </button>
@@ -882,7 +882,7 @@ export default function App() {
 
             {/* Compose (Hide on profile/builders if it doesn't fit) */}
             {(screen !== 'profile' && screen !== 'builders') && (
-              <div className="bg-navy-900 border border-navy-800 rounded-sm p-6 focus-within:border-blue-500/50 transition-colors">
+              <div className="bg-navy-900 border border-navy-800 rounded-sm p-6 focus-within:border-cyan-500/50 transition-colors">
                 <textarea 
                   value={newPostContent}
                   onChange={e => setNewPostContent(e.target.value)}
@@ -897,7 +897,7 @@ export default function App() {
                   <button 
                     onClick={handlePost}
                     disabled={!newPostContent.trim() || isPosting}
-                    className="px-6 py-2 bg-blue-500 text-white font-bold uppercase text-xs tracking-widest rounded-sm hover:bg-blue-600 transition-all disabled:opacity-30 active:scale-95"
+                    className="px-6 py-2 bg-cyan-500 text-white font-bold uppercase text-xs tracking-widest rounded-sm hover:bg-cyan-600 transition-all disabled:opacity-30 active:scale-95"
                   >
                     {isPosting ? 'Sending...' : 'Post'}
                   </button>
@@ -934,7 +934,7 @@ export default function App() {
                           </div>
                           <div className="flex items-center gap-4">
                             {post.trail && !activeTrailId && (
-                              <button onClick={() => { setActiveTrailId(trails.find(t => t.name === post.trail)?.id || null); setScreen('trail'); }} className="text-[10px] uppercase font-bold text-slate-500 hover:text-blue-500 transition-colors">
+                              <button onClick={() => { setActiveTrailId(trails.find(t => t.name === post.trail)?.id || null); setScreen('trail'); }} className="text-[10px] uppercase font-bold text-slate-500 hover:text-cyan-500 transition-colors">
                                 {post.trail}
                               </button>
                             )}
@@ -946,7 +946,7 @@ export default function App() {
                         <p className="text-slate-200 text-lg leading-relaxed whitespace-pre-wrap">{post.content}</p>
                         
                         <div className="flex items-center gap-8 pt-2 text-slate-600">
-                          <button className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-blue-500 transition-colors">
+                          <button className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-cyan-500 transition-colors">
                             <MessageCircle className="w-4 h-4" />
                             <span>Respond</span>
                           </button>
@@ -956,8 +956,8 @@ export default function App() {
                             </button>
                           )}
                           <div className="ml-auto flex gap-4">
-                            <Activity className="w-4 h-4 hover:text-blue-500 cursor-pointer transition-colors" />
-                            <Bookmark className="w-4 h-4 hover:text-blue-500 cursor-pointer transition-colors" />
+                            <Activity className="w-4 h-4 hover:text-cyan-500 cursor-pointer transition-colors" />
+                            <Bookmark className="w-4 h-4 hover:text-cyan-500 cursor-pointer transition-colors" />
                           </div>
                         </div>
                       </div>
@@ -979,11 +979,11 @@ export default function App() {
               {trails.slice(0, 5).map(t => (
                 <div key={t.id} className="group cursor-pointer" onClick={() => { setActiveTrailId(t.id); setScreen('trail'); }}>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-mono text-slate-300 group-hover:text-blue-500 transition-colors uppercase tracking-tight">{t.name}</span>
-                    <ChevronRight className="w-3 h-3 text-slate-700 group-hover:text-blue-500 transition-all" />
+                    <span className="text-sm font-mono text-slate-300 group-hover:text-cyan-500 transition-colors uppercase tracking-tight">{t.name}</span>
+                    <ChevronRight className="w-3 h-3 text-slate-700 group-hover:text-cyan-500 transition-all" />
                   </div>
                   <div className="h-1 w-full bg-navy-900 rounded-full overflow-hidden">
-                    <motion.div initial={{ width: 0 }} animate={{ width: `${Math.random() * 60 + 20}%` }} className="h-full bg-blue-500/50" />
+                    <motion.div initial={{ width: 0 }} animate={{ width: `${Math.random() * 60 + 20}%` }} className="h-full bg-cyan-500/50" />
                   </div>
                 </div>
               ))}
@@ -998,7 +998,7 @@ export default function App() {
                   <img 
                     src={`https://ui-avatars.com/api/?name=B${i}&background=111827&color=64748b`} 
                     alt="" 
-                    className="w-full h-full rounded-sm border border-navy-800 group-hover:border-blue-500 transition-all"
+                    className="w-full h-full rounded-sm border border-navy-800 group-hover:border-cyan-500 transition-all"
                   />
                   <div className={`absolute -bottom-1 -right-1 w-2 h-2 border-2 border-navy-950 rounded-full ${i % 3 === 0 ? 'bg-amber-500' : 'bg-emerald-500'}`} />
                 </div>
@@ -1032,7 +1032,7 @@ export default function App() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="relative w-full max-w-xl bg-navy-900 border border-navy-800 rounded-sm p-10 shadow-2xl overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500" />
               
               <div className="flex justify-between items-start mb-8">
                  <div>
@@ -1052,7 +1052,7 @@ export default function App() {
                     value={newTrailData.name}
                     onChange={e => setNewTrailData({...newTrailData, name: e.target.value})}
                     placeholder="e.g. Neo-Brutalism Design"
-                    className="w-full bg-navy-950 border border-navy-800 rounded-sm p-4 text-white focus:border-blue-500 outline-none transition-all"
+                    className="w-full bg-navy-950 border border-navy-800 rounded-sm p-4 text-white focus:border-cyan-500 outline-none transition-all"
                   />
                 </div>
 
@@ -1063,7 +1063,7 @@ export default function App() {
                     value={newTrailData.description}
                     onChange={e => setNewTrailData({...newTrailData, description: e.target.value})}
                     placeholder="A path for designers exploring raw textures."
-                    className="w-full bg-navy-950 border border-navy-800 rounded-sm p-4 text-white focus:border-blue-500 outline-none transition-all"
+                    className="w-full bg-navy-950 border border-navy-800 rounded-sm p-4 text-white focus:border-cyan-500 outline-none transition-all"
                   />
                 </div>
 
@@ -1075,10 +1075,10 @@ export default function App() {
                         key={name}
                         onClick={() => setNewTrailData({...newTrailData, icon: name})}
                         className={`p-4 rounded-sm border flex items-center justify-center transition-all ${
-                          newTrailData.icon === name ? 'bg-blue-500/10 border-blue-500 shadow-lg shadow-blue-500/10' : 'bg-navy-950 border-navy-800 hover:border-navy-700'
+                          newTrailData.icon === name ? 'bg-cyan-500/10 border-cyan-500 shadow-lg shadow-cyan-500/10' : 'bg-navy-950 border-navy-800 hover:border-navy-700'
                         }`}
                       >
-                        {React.cloneElement(icon as React.ReactElement, { className: `w-6 h-6 ${newTrailData.icon === name ? 'text-blue-500' : 'text-slate-600'}` })}
+                        {React.cloneElement(icon as React.ReactElement, { className: `w-6 h-6 ${newTrailData.icon === name ? 'text-cyan-500' : 'text-slate-600'}` })}
                       </button>
                     ))}
                   </div>
@@ -1090,14 +1090,14 @@ export default function App() {
                     value={newTrailData.manifesto}
                     onChange={e => setNewTrailData({...newTrailData, manifesto: e.target.value})}
                     placeholder="Why does this trail exist? What are we building towards?"
-                    className="w-full bg-navy-950 border border-navy-800 rounded-sm p-4 text-white focus:border-blue-500 outline-none transition-all min-h-[120px] resize-none"
+                    className="w-full bg-navy-950 border border-navy-800 rounded-sm p-4 text-white focus:border-cyan-500 outline-none transition-all min-h-[120px] resize-none"
                   />
                 </div>
 
                 <div className="flex justify-end pt-4">
                   <button 
                     onClick={handleCreateTrail}
-                    className="px-10 py-3 bg-blue-500 text-white font-bold uppercase text-xs tracking-[0.2em] rounded-sm hover:bg-blue-600 transition-all active:scale-[0.98]"
+                    className="px-10 py-3 bg-cyan-500 text-white font-bold uppercase text-xs tracking-[0.2em] rounded-sm hover:bg-cyan-600 transition-all active:scale-[0.98]"
                   >
                     Forge Trail
                   </button>
@@ -1117,13 +1117,13 @@ function NavItem({ icon, label, active = false, onClick, compact = false }: { ic
       onClick={onClick}
       className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-sm transition-all relative group cursor-pointer ${
         active 
-        ? 'text-blue-500 bg-blue-500/5' 
+        ? 'text-cyan-500 bg-cyan-500/5' 
         : 'text-slate-500 hover:text-slate-100 hover:bg-navy-900'
       }`}
     >
       {React.cloneElement(icon as React.ReactElement, { className: 'w-5 h-5 flex-shrink-0' })}
       {!compact && <span className="text-xs font-bold uppercase tracking-widest truncate">{label}</span>}
-      {active && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-blue-500 rounded-r-full" />}
+      {active && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-cyan-500 rounded-r-full" />}
     </button>
   );
 }
